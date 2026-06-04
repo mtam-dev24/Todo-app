@@ -22,13 +22,12 @@ export function TodoItem(
         onDelete,
         onEdit
     }: TodoItemProps) {
-    const [isEditing, setIsEditing] = useState(false)
-    const [editValue, setEditValue] = useState(title)
-
+    const [isEditing, setIsEditing] = useState(false);
+    const [editValue, setEditValue] = useState(title);
 
     return (
-        <div className="border-1 my-2 rounded-sm">{(!isEditing) ? (
-            <div className="flex gap-2 items-center m-1">
+        <div>{(!isEditing) ? (
+            <div className="flex gap-2 items-center border-1 my-2 rounded-sm p-2">
                 <span
                     className="flex-1 text-l mx-3"
                     style={{ textDecoration: isDone ? 'line-through' : 'none' }}>
@@ -49,7 +48,7 @@ export function TodoItem(
                     🗑
                 </Button>
             </div>) : (
-            <div className="flex gap-2 items-center m-1">
+            <div className="flex gap-2 items-center border-1 my-2 rounded-sm p-2">
                 <Input
                     type="text"
                     value={editValue}

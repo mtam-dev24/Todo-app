@@ -15,6 +15,7 @@ type FilterType = "all" | "done" | "todo";
 
 export function TodoList({ todos, onToggle, onDelete, onEdit }: TodoListProps) {
     const [filter, setFilter] = useState<FilterType>("all");
+
     const filteredTodos = todos
         .filter(todo => !todo.isDeleted)
         .filter(todo => {
@@ -22,27 +23,28 @@ export function TodoList({ todos, onToggle, onDelete, onEdit }: TodoListProps) {
             if (filter === "todo") return !todo.isDone
             return true
         })
+
     return (
         <div>
             <div className="flex my-2">
                 <Button
-                    onClick={() => setFilter("all")}
-                    className="flex-1 bg-blue-600">
+                    onClick={() => { setFilter("all") }}
+                    className={(filter === "all") ? "flex-1 bg-blue-600" : "flex-1 bg-gray-600"}>
                     All
                 </Button>
                 <Button
                     onClick={() => setFilter("done")}
-                    className="flex-1 bg-blue-600">
+                    className={(filter === "done") ? "flex-1 bg-blue-600" : "flex-1 bg-gray-600"}>
                     Done
                 </Button>
                 <Button
                     onClick={() => setFilter("todo")}
-                    className="flex-1 bg-blue-600">
+                    className={(filter === "todo") ? "flex-1 bg-blue-600" : "flex-1 bg-gray-600"}>
                     Todo
                 </Button>
             </div>
             <div>
-                {filteredTodos.filter(todo => !todo.isDeleted).map(todo => (
+                {filteredTodos.map(todo => (
                     <TodoItem
                         key={todo.id}
                         id={todo.id}
