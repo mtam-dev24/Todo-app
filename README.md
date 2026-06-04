@@ -1,2 +1,2 @@
 # Todo-app
-Todo aplication using NextJS and Shadcn
+Todo aplication use NextJS and Shadcn
