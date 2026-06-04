@@ -27,10 +27,10 @@ export function TodoItem(
 
 
     return (
-        <div >{(!isEditing) ? (
-            <div className="flex gap-2 items-center my-1">
+        <div className="border-1 my-2 rounded-sm">{(!isEditing) ? (
+            <div className="flex gap-2 items-center m-1">
                 <span
-                    className="flex-1 text-l"
+                    className="flex-1 text-l mx-3"
                     style={{ textDecoration: isDone ? 'line-through' : 'none' }}>
                     {title}
                 </span>
@@ -49,7 +49,7 @@ export function TodoItem(
                     🗑
                 </Button>
             </div>) : (
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center m-1">
                 <Input
                     type="text"
                     value={editValue}
